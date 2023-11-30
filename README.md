@@ -3,7 +3,7 @@ The grid component is a reusable grid or table component which supports multiple
 
 Features: 1. Row-data 2. Column-header 3. Filter 4. Sorting (up/down) 5. Checkbox 6. Pagination: Client-side 7. Pagination: Server-side 8. Collapsible rows 9. Buttons in Rows
 
-FEATURE'S GUIDE:
+FEATURE GUIDE:
 
 ******************\******************* ROW-DATA ******************\*******************
 
