@@ -110,7 +110,7 @@ return the currently selected page number (pageNumber). For Example:
  2. src = The icon that should be used for the button. 3. alt="table-button" 4. name="tableButton" => Take care that name is always tableButton, else the button will not work. 5. Add other html attributes like height and width as required. 6. In columnHeaders add a new object for this button with button variable name as 'field' value as shown below:
 
         { field: 'button1', headerName: '', width: '90px', sortable: false }
-
+ƒ
         columnHeaders = [...columnHeaders, { field: 'button1', headerName: '', width: '90px', sortable: false }]
 
     7. Inject 'button1' to all rows in rowData that requires button and assign the variable as value for it as shown below:
