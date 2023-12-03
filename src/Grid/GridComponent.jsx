@@ -6,6 +6,7 @@ import GridFilter from "./gridFilter";
 import Pagination from "react-js-pagination";
 import _ from "lodash";
 import { v4 as uuidv4 } from "uuid";
+import "../index.css";
 
 export default class GridComponent extends Component {
   constructor(props) {
