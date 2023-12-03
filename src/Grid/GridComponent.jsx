@@ -431,7 +431,10 @@ export default class GridComponent extends Component {
         backgroundColor: theme.palette.common.white,
         color: "rgba(0, 0, 0, 0.87)",
         boxShadow: theme.shadows[1],
-        fontSize: 11
+        fontSize: 11,
+        height: "auto",
+        width: "auto",
+        maxWidth: "fit-content"
       }
     }));
 

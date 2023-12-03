@@ -86,8 +86,7 @@ export default class GridFilter extends Component {
             />
           </div>
           <div className="table-filter-sub-section">
-            <button
-              className="table-filter-close-btn"
+            <img
               onClick={() =>
                 this.props.handleApplyFilter(
                   this.state.columnFilter,
@@ -95,15 +94,16 @@ export default class GridFilter extends Component {
                   this.state.valueFilter
                 )
               }
-            >
-              <img src={tickIcon} width="25px" height="25px" />
-            </button>
-            <button
-              className="table-filter-close-btn"
+              src={tickIcon}
+              width="25px"
+              height="25px"
+            />
+            <img
+              src={closeIcon}
               onClick={this.handleResetFilter}
-            >
-              <img src={closeIcon} width="25px" height="25px" />
-            </button>
+              width="25px"
+              height="25px"
+            />
           </div>
         </div>
         {this.props.filterError && (
