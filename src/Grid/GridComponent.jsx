@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import filterIcon from "../Images/filter-outline.svg";
+import filterIcon from "../Images/filter_icon_white.png";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
 import GridFilter from "./gridFilter";
@@ -31,7 +31,7 @@ export default class GridComponent extends Component {
       selectAllCheckbox: false,
       checkBoxArray: this.props.checkBoxArray,
       currentPageData: [],
-      totalRows: this.props.totalRows,
+      totalRows: this.props.totalRows ? this.props.totalRows : 0,
       collapseArea: "",
       pageSearchInput: 0,
       isClearPageInput: false
@@ -413,9 +413,11 @@ export default class GridComponent extends Component {
 
   render() {
     const lastPage = Math.ceil(this.state.totalRows / this.state.rowsPerPage);
-    const columnsArray = this.props.columnHeaders
-      .map(column => column.visible !== false && column.field)
-      .filter(col => col);
+    const columnsArray =
+      this.props.columnHeaders &&
+      this.props.columnHeaders
+        .map(column => column.visible !== false && column.field)
+        .filter(col => col);
     const noOfColumns =
       this.props.rowData.length > 0 &&
       Object.keys(this.props.rowData[0]).length;
@@ -428,8 +430,11 @@ export default class GridComponent extends Component {
       <Tooltip {...props} classes={{ popper: className }} />
     ))(({ theme }) => ({
       [`& .${tooltipClasses.tooltip}`]: {
-        backgroundColor: theme.palette.common.white,
-        color: "rgba(0, 0, 0, 0.87)",
+        // backgroundColor: theme.palette.common.white,
+        // color: "rgba(0, 0, 0, 0.87)",
+        backgroundColor: "#e1d0ff",
+        color: "#3B1F2B",
+        fontFamily: "monospace",
         boxShadow: theme.shadows[1],
         fontSize: 11,
         height: "auto",
@@ -483,7 +488,12 @@ export default class GridComponent extends Component {
                             {cols.headerName}
                           </span>
                           {cols.sortable === true && (
-                            <span style={{ display: "inline-grid" }}>
+                            <span
+                              style={{
+                                display: "inline-grid",
+                                marginTop: "0.3em"
+                              }}
+                            >
                               <span
                                 className="table-sort-up-button"
                                 onClick={() => this.sortUp(index)}
@@ -499,14 +509,10 @@ export default class GridComponent extends Component {
                     )
                 )}
               {this.props.filter === true && (
-                <th
-                  key={`LightToolTip-${uuidv4()}`}
-                  style={{ width: "10px", paddingTop: 0 }}
-                >
+                <th key={`LightToolTip-${uuidv4()}`} style={{ width: "10px" }}>
                   <LightTooltip
                     open={this.state.toggleTooltip}
                     interactive="true"
-                    classes="new-class"
                     title={
                       <GridFilter
                         handleApplyFilter={this.handleApplyFilter}
@@ -524,7 +530,6 @@ export default class GridComponent extends Component {
                       src={filterIcon}
                       width="13"
                       height="13"
-                      style={{ float: "right" }}
                       onClick={() =>
                         this.handleTooltipOpen(!this.state.toggleTooltip)
                       }
@@ -610,7 +615,7 @@ export default class GridComponent extends Component {
           <div className="pagination-total-rows-label">
             Total Records : {this.state.totalRows}
           </div>
-          <div style={{ width: "15%", alignSelf: "center" }}>
+          <div style={{ width: "15%", alignSelf: "center", display: "flex" }}>
             <input
               className="table-pagination-input"
               type="number"
@@ -624,9 +629,8 @@ export default class GridComponent extends Component {
             />
             {this.state.isClearPageInput && (
               <button
-                style={{ height: "auto", width: "auto" }}
                 type="button"
-                className="close-button-style"
+                className="pagination-close-button-style"
                 data-dismiss="modal"
                 onClick={this.clearPageSearch}
               >

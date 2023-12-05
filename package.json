@@ -1,7 +1,7 @@
 {
-  "name": "sdvr-grid-0",
+  "name": "sdvr-grid",
   "private": false,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "Reusable grid component by sdvr",
   "license": "MIT",
@@ -17,6 +17,10 @@
     ".": {
       "import": "./dist/sdvr-grid.es.js",
       "require": "./dist/sdvr-grid.umd.js"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
     }
   },
   "scripts": {
